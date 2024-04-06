@@ -1,0 +1,62 @@
+<div class="container">
+    <h1>HOLA ... este es mi primer proyecto en Angular</h1>
+    <h2>{{welcome}}</h2>
+    <ul>
+        <li *ngFor="let task of tasks()">
+            {{task}}
+        </li>
+    </ul>
+    <hr />
+    <h2>{{'hola'.repeat(4)}}</h2>
+    <hr />
+
+    <img [src]="person().avatar" alt="">
+    <input type="number" [value]="person().age">
+    <button [disabled]="disabled">click me</button>
+    <p>person: {{ person().name}}</p>
+    <button (click)="clickmefunction()">click me</button>
+    <br>
+    <button (dblclick)="clickmefunction()">Dblclick me</button>
+    <p> (change)</p>
+    <input type="number" [value]="person().age" (change)="chengeHandelr($event)">
+    <p> (keydown)</p>
+    <input type="text" [value]="person().name" (keydown)="keydownHandelr($event)">
+    <h1>SIgnals</h1>
+    <input type="text" [value]="name()" (change)="chengeHandelr($event)">
+    <h2> hola mi nombre es {{name()}} y tengo la edad de {{edad}}</h2>
+
+    <ul>
+        <p>total: {{tasks().length}}</p>
+        <li *ngFor="let task of tasks(); index as i">
+            {{i}} {{task}}
+        </li>
+    </ul>
+    <hr />
+    <div *ngIf="1 !=1">
+        My Contend
+    </div>
+    <div *ngIf="name()==='javier cardenas'">
+        soy javier cardenas
+    </div>
+    <input type="number" [value]="person().age" (change)="chengeAge($event)">
+
+    <div *ngIf="person().name=== 'Javier cardenas' && person().age >=
+     18; else elseBlock">
+        soy javier cardenas y soy mayor de edad
+    </div>
+    <ng-template #elseBlock>
+        soy javier y soy menor de edad
+    </ng-template>
+    <hr/>
+    <input type="text" [value]="person().name" (change)="chengeName($event)">
+    <div [ngSwitch]="person().name">
+        <p *ngSwitchCase="'javier'">yo soy javier</p>
+        <p *ngSwitchCase="'nidia'">yo soy nidia</p>
+        <p *ngSwitchCase="'martin'">yo soy martin</p>
+        <p *ngSwitchCase="'pepito'">yo soy pepito</p>
+        <p *ngSwitchDefault>yo no soy existo</p>
+    </div>
+    <hr/>
+    <input type="color" [formControl]="colorCtrl">
+    <p>color:{{colorCtrl.value}}</p>
+</div>
